@@ -1,37 +1,42 @@
 #include <stdio.h>
 /**
- * main - print numbers from 00 to 99.
-(*
- * Return: 0 on success
- */
+  * main - The entry point of C programs
+  * @void: The function takes no parameters
+  *
+  * Description: This program that prints all possible different
+  * combinations of three digits.
+  * Return: 0
+  */
 int main(void)
 {
-	int i = '0';
-	int j = '0';
+	int firstnum, secondnum, thirdnum;
 
-	while (i <= '9')
+	firstnum = 48;
+	while (firstnum < 58)
 	{
-		while (j <= '9')
+		secondnum = 49;
+		while (secondnum < 58)
 		{
-			if (!(i > j || i == j))
+			thirdnum = 50;
+			while (thirdnum < 58)
 			{
-				putchar(i);
-				putchar(j);
-				if (i == '8' && j == '9')
+				if (thirdnum > secondnum && secondnum > firstnum)
 				{
-					putchar('\n');
+					putchar(firstnum);
+					putchar(secondnum);
+					putchar(thirdnum);
+					if (firstnum != 55 || secondnum != 56)
+					{
+						putchar(',');
+						putchar(' ');
+					}
 				}
-				else
-				{
-					putchar(',');
-					putchar(' ');
-				}
+				thirdnum++;
 			}
-			j++;
+			secondnum++;
 		}
-		j = '0';
-		i++;
+		firstnum++;
 	}
+	putchar('\n');
 	return (0);
 }
-
